@@ -1,0 +1,26 @@
+#image{
+    position:absolute;
+    top:40%;
+}
+#text{
+    position:absolute;
+    top:70%;
+    color:white;
+}
+
+#first{
+    margin-left:50px;
+}
+
+#second{
+    margin-left:150px;
+    margin-right:50px;
+}
+#third{
+    margin-left:60px;
+    margin-right:50px;
+}
+#forth{
+    margin-left:60px;
+    margin-right:50px;
+}
