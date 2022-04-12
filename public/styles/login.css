@@ -1,0 +1,39 @@
+body{
+    background-image: url("../images/register.jpg");
+    font-family: 'Arial';  
+  }
+  h3{
+      font-family: Calibri; 
+      font-size: 25pt;         
+      font-style: normal; 
+      font-weight: bold; 
+      color:yellowgreen;
+      text-align: center; 
+      text-decoration: underline
+    }
+    
+    table{
+        margin-top: 18%;
+        text-align: center;
+      font-family: Calibri; 
+      color:white; 
+      font-size: 11pt; 
+      font-style: normal;
+      font-weight: bold;
+      text-align:left; 
+      background-color:brown;
+      border-collapse: collapse; 
+      border: 2px solid navy
+    }
+    table.inner{
+      border: 0px
+    }
+    body{
+        background-color:grey
+    }
+  
+    h2{  
+      text-align: center;  
+      color: #277582;  
+      padding: 20px;  
+  }

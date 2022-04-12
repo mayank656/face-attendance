@@ -1,22 +1,10 @@
-#image{
-    position:absolute;
-    top:40%;
+.image{
+    height:20%;
+    width:20%;
+    margin:6%;
+    display:inline-block;
 }
-#text{
-    position:absolute;
-    top:70%;
-    color:white;
-}
-
-#first{
-    margin-left:50px;
+body{
+    background-image: url("../images/register.jpg");
 }
 
-#second{
-    margin-left:150px;
-    margin-right:50px;
-}
-#third{
-    margin-left:60px;
-    margin-right:50px;
-}

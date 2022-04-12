@@ -32,13 +32,14 @@ const saltRounds = 10;
 
 const id = "admin-shikhar";
 const password = process.env.PASSWORD;
-const database_url = "mongodb+srv://" + id + ":" + password + "@cluster0.gxjfw.mongodb.net/attendance";
+const database_url = "mongodb://127.0.0.1:27017/attendance";
 mongoose.connect(database_url, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 });
 
 const userSchema = new mongoose.Schema({
+    userid: String,
     username: String,
     name: String,
     address: String,
@@ -72,6 +73,14 @@ app.get("/register", function(req, res){
     res.render("register");
 });
 
+app.get("/dashboard", function(req, res){
+    res.render("dashboard");
+})
+
+app.get("/login",function(req,res){
+    res.render("login");
+})
+
 app.post("/register", function (req, res) {
     var dataToSend;
     // spawn new child process to call the python script
@@ -88,6 +97,7 @@ app.post("/register", function (req, res) {
 
     User.register(
         {
+            userid: req.body.userid,
             username: req.body.username,
             name: req.body.name,
             address: req.body.address,
@@ -108,11 +118,11 @@ app.post("/register", function (req, res) {
     );
 });
 
-app.get('/python', (req, res) => {
+app.get("/python", (req, res) => {
  
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python', ['test.py']);
+    const python = spawn('python', ['attendance.py']);
     // collect data from script
     python.stdout.on('data', function (data) {
      console.log('Pipe data from python script ...');
@@ -121,8 +131,8 @@ app.get('/python', (req, res) => {
     // in close event we are sure that stream from child process is closed
     python.on('close', (code) => {
     console.log(`child process close all stdio with code ${code}`);
+    res.redirect("/dashboard");
     // send data to browser
-    res.send(dataToSend)
     });
     
    })
